@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Picks USA — Honest Tech &amp; AI Tool Reviews</title>
+<meta name="description" content="We test gadgets and AI tools for weeks before recommending them. Real Pick Scores, real prices, no fluff.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   Smart Picks USA — Design System
+   Display: Space Grotesk | Body: Inter | Data: IBM Plex Mono
+   ============================================ */
+
+:root {
+  --navy: #0B1F3A;
+  --navy-2: #122A4D;
+  --blue: #2F6FED;
+  --blue-dark: #1E4FC4;
+  --ice: #F7FAFC;
+  --white: #FFFFFF;
+  --slate: #5B6B82;
+  --slate-light: #8B98AA;
+  --amber: #F5A623;
+  --green: #16A34A;
+  --line: #E2E8F0;
+  --line-dark: rgba(255,255,255,0.12);
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-card: 0 1px 2px rgba(11,31,58,0.04), 0 8px 24px rgba(11,31,58,0.06);
+  --shadow-hover: 0 4px 8px rgba(11,31,58,0.06), 0 16px 32px rgba(11,31,58,0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: var(--ice);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.mono { font-family: var(--font-mono); }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: 0 2px 0 var(--blue-dark);
+}
+.btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--line);
+}
+.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+.btn-ghost.on-dark { color: var(--white); border-color: var(--line-dark); }
+.btn-ghost.on-dark:hover { border-color: var(--white); }
+.btn-amber {
+  background: var(--amber);
+  color: var(--navy);
+  box-shadow: 0 2px 0 #c9820f;
+}
+.btn-amber:hover { transform: translateY(-1px); }
+.btn-block { width: 100%; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247,250,252,0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.logo .mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+}
+.logo .tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--slate);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-top: -2px;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.main-nav a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--navy);
+  position: relative;
+  padding: 4px 0;
+}
+.main-nav a.active { color: var(--blue); }
+.main-nav a:not(.active):hover { color: var(--blue); }
+.header-cta { display: flex; align-items: center; gap: 14px; }
+.nav-toggle { display: none; }
+
+@media (max-width: 900px) {
+  .main-nav { position: fixed; top: 76px; left: 0; right: 0; background: var(--white); flex-direction: column; align-items: flex-start; padding: 24px 32px; gap: 20px; border-bottom: 1px solid var(--line); transform: translateY(-140%); transition: transform 0.25s ease; }
+  .main-nav.open { transform: translateY(0); }
+  .nav-toggle { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { width: 22px; height: 2px; background: var(--navy); border-radius: 2px; }
+  .header-cta .btn-ghost { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0 110px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -180px;
+  right: -180px;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(47,111,237,0.35), transparent 70%);
+}
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+}
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.05;
+  margin: 18px 0 22px;
+  color: var(--white);
+}
+.hero h1 em { color: var(--amber); font-style: normal; }
+.hero p.lede {
+  font-size: 18px;
+  color: rgba(255,255,255,0.75);
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+.hero-actions { display: flex; gap: 14px; margin-bottom: 40px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 36px; }
+.hero-stats div strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--white);
+}
+.hero-stats div span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Spotlight card + Pick Score gauge (signature element) */
+.spotlight-card {
+  background: var(--white);
+  color: var(--navy);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  position: relative;
+}
+.spotlight-card .badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.spotlight-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--amber);
+  color: var(--navy);
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.spotlight-card img.product-shot {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  background: var(--ice);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+.spotlight-card h3 { font-size: 21px; margin-bottom: 4px; }
+.spotlight-card .cat { color: var(--slate); font-size: 13px; margin-bottom: 16px; }
+
+.gauge-row { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+.gauge { width: 84px; height: 48px; position: relative; }
+.gauge svg { width: 100%; height: 100%; }
+.gauge-label { }
+.gauge-label .num { font-family: var(--font-display); font-size: 28px; line-height: 1; display: block; }
+.gauge-label .txt { font-family: var(--font-mono); font-size: 11px; color: var(--slate); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.price-row { display: flex; align-items: baseline; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--line); }
+.price-row .price { font-family: var(--font-mono); font-size: 22px; font-weight: 600; }
+.price-row .was { font-family: var(--font-mono); font-size: 13px; color: var(--slate-light); text-decoration: line-through; margin-left: 6px; }
+
+/* ---------- Sections generic ---------- */
+section { padding: 90px 0; }
+.section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 44px; gap: 24px; flex-wrap: wrap; }
+.section-head h2 { font-size: 34px; }
+.section-head p { color: var(--slate); max-width: 460px; }
+
+/* ---------- Category tiles ---------- */
+.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cat-tile {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.cat-tile:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); border-color: transparent; }
+.cat-tile .icon-box {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+.cat-tile h3 { font-size: 20px; margin-bottom: 8px; }
+.cat-tile p { color: var(--slate); font-size: 14px; margin-bottom: 18px; }
+.cat-tile .go { font-size: 14px; font-weight: 600; color: var(--blue); display: inline-flex; align-items: center; gap: 6px; }
+
+/* ---------- Product grid / cards ---------- */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.product-grid.two { grid-template-columns: repeat(2, 1fr); }
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.product-media {
+  background: var(--ice);
+  height: 170px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+.product-media img { height: 70%; object-fit: contain; }
+.product-media .rank {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--navy); color: var(--white);
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  padding: 4px 9px; border-radius: 999px;
+}
+.product-body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.product-body .cat-label { font-family: var(--font-mono); font-size: 11px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.05em; }
+.product-body h3 { font-size: 18px; }
+.product-body p.blurb { color: var(--slate); font-size: 14px; flex: 1; }
+.mini-gauge-row { display: flex; align-items: center; gap: 10px; }
+.mini-gauge { width: 54px; height: 32px; }
+.mini-gauge .num { font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+.mini-gauge .txt { font-family: var(--font-mono); font-size: 10px; color: var(--slate); text-transform: uppercase; }
+.product-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--line); }
+.product-footer .price { font-family: var(--font-mono); font-weight: 600; }
+.product-footer a.btn { padding: 9px 16px; font-size: 13px; }
+
+/* ---------- Process (real sequence => numbered) ---------- */
+.process { background: var(--navy); color: var(--white); border-radius: 24px; padding: 64px; margin: 0 32px; }
+.process .container { padding: 0; max-width: none; }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 40px; }
+.process-step .step-num { font-family: var(--font-mono); color: var(--amber); font-size: 13px; margin-bottom: 14px; }
+.process-step h4 { color: var(--white); font-size: 18px; margin-bottom: 8px; }
+.process-step p { color: rgba(255,255,255,0.65); font-size: 14px; }
+
+/* ---------- Newsletter ---------- */
+.newsletter {
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  border-radius: 24px;
+  margin: 0 32px;
+  padding: 56px 64px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.newsletter h2 { color: var(--white); font-size: 28px; margin-bottom: 8px; }
+.newsletter p { color: rgba(255,255,255,0.82); max-width: 380px; }
+.newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.newsletter-form input {
+  padding: 13px 18px;
+  border-radius: 999px;
+  border: none;
+  min-width: 260px;
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+.newsletter-form input:focus { outline: 3px solid rgba(255,255,255,0.5); }
+
+/* ---------- Footer ---------- */
+footer.site-footer { background: var(--navy-2); color: rgba(255,255,255,0.7); padding: 64px 0 28px; margin-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.footer-grid h4 { color: var(--white); font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.04em; font-family: var(--font-mono); }
+.footer-grid li { margin-bottom: 10px; font-size: 14px; }
+.footer-grid a:hover { color: var(--white); }
+.footer-brand p { font-size: 14px; max-width: 280px; margin-top: 12px; color: rgba(255,255,255,0.55); }
+.disclosure {
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  padding: 20px 0;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.footer-bottom { display: flex; justify-content: space-between; font-size: 12.5px; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 12px; }
+
+/* ---------- Page header (inner pages) ---------- */
+.page-header { background: var(--navy); color: var(--white); padding: 64px 0 56px; }
+.page-header h1 { color: var(--white); font-size: 40px; margin: 10px 0 12px; }
+.page-header p { color: rgba(255,255,255,0.7); max-width: 560px; }
+.crumb { font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.5); }
+.crumb a { color: var(--amber); }
+
+/* ---------- Filter bar ---------- */
+.filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+.filter-chip {
+  font-size: 13px; font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.15s ease;
+}
+.filter-chip.active, .filter-chip:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ---------- About page ---------- */
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+.value-card .num { font-family: var(--font-mono); color: var(--blue); font-size: 13px; margin-bottom: 12px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+.team-card { text-align: center; }
+.team-card .avatar { width: 88px; height: 88px; border-radius: 50%; background: var(--line); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--blue); background: #E3ECFC; }
+.team-card h4 { font-size: 15px; margin-bottom: 3px; }
+.team-card span { font-size: 12.5px; color: var(--slate); font-family: var(--font-mono); }
+
+/* ---------- Contact page ---------- */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--white);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); }
+.form-group textarea { resize: vertical; min-height: 130px; }
+.contact-info-card { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 36px; }
+.contact-info-card h3 { color: var(--white); margin-bottom: 18px; }
+.contact-info-row { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
+.contact-info-row .ico { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--amber); font-family: var(--font-mono); font-size: 13px; }
+.contact-info-row span.label { display: block; font-size: 12px; color: rgba(255,255,255,0.55); font-family: var(--font-mono); }
+.contact-info-row span.val { font-size: 14.5px; }
+.form-status { font-size: 14px; margin-top: 14px; display: none; padding: 12px 16px; border-radius: var(--radius-sm); }
+.form-status.ok { display: block; background: #E9F9EF; color: var(--green); }
+
+/* ---------- Reviews page long list ---------- */
+.review-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto auto;
+  gap: 24px;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.review-row img { width: 90px; height: 68px; object-fit: contain; background: var(--ice); border-radius: 8px; padding: 6px; }
+.review-row h4 { font-size: 16px; margin-bottom: 3px; }
+.review-row .cat-label { font-family: var(--font-mono); font-size: 11px; color: var(--blue); }
+.review-row .rr-gauge { display: flex; align-items: center; gap: 8px; }
+
+@media (max-width: 900px) {
+  .hero .container { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 38px; }
+  .cat-grid, .product-grid, .product-grid.two, .team-grid, .value-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-wrap { grid-template-columns: 1fr; }
+  .process { padding: 40px 28px; margin: 0 16px; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .newsletter { padding: 40px 28px; margin: 0 16px; }
+  .review-row { grid-template-columns: 60px 1fr; grid-template-rows: auto auto; }
+  .review-row img { width: 60px; height: 50px; }
+}
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  .cat-grid, .product-grid, .product-grid.two, .team-grid, .value-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 56px 0 72px; }
+  .hero h1 { font-size: 30px; }
+  section { padding: 60px 0; }
+  .process-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- App / router additions ---------- */
+.page[hidden] { display: none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#home" class="logo" data-page="home">
+      <span class="mark">SP</span>
+      <span>Smart Picks USA<span class="tag">TESTED · RATED · TRUSTED</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="#home" data-page="home">Home</a>
+      <a href="#gadgets" data-page="gadgets">Gadgets</a>
+      <a href="#ai-tools" data-page="ai-tools">AI Tools</a>
+      <a href="#reviews" data-page="reviews">Reviews</a>
+      <a href="#about" data-page="about">About</a>
+      <a href="#contact" data-page="contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#reviews" class="btn btn-ghost">This Week's Top Pick</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<div id="page-home" class="page">
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow">// Independent testing, since 2021</span>
+      <h1>We test it for <em>weeks</em>.<br>You buy it in <em>seconds</em>.</h1>
+      <p class="lede">Smart Picks USA runs gadgets and AI tools through real daily use before we score them. No sponsored 5-stars — every Pick Score is earned.</p>
+      <div class="hero-actions">
+        <a href="#gadgets" class="btn btn-amber">Browse Gadgets</a>
+        <a href="#ai-tools" class="btn btn-ghost on-dark">Browse AI Tools</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>412</strong><span>Products tested</span></div>
+        <div><strong>18 hrs</strong><span>Avg. testing time</span></div>
+        <div><strong>0</strong><span>Paid 5-star reviews</span></div>
+      </div>
+    </div>
+
+    <div class="spotlight-card">
+      <div class="badge-row">
+        <span class="spotlight-tag">★ Editor's Pick — July</span>
+      </div>
+      <img class="product-shot" src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80" alt="Pulse Buds Pro X2 wireless earbuds in charging case">
+      <h3>Pulse Buds Pro X2</h3>
+      <p class="cat">Wireless Earbuds · Audio</p>
+      <div class="gauge-row">
+        <div class="gauge" data-gauge="93"></div>
+        <div class="gauge-label">
+          <span class="num">93</span>
+          <span class="txt">Pick Score</span>
+        </div>
+      </div>
+      <div class="price-row">
+        <div><span class="price">$149</span><span class="was">$189</span></div>
+        <a href="#gadgets" class="btn btn-primary">Check Price</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Where to start</span>
+        <h2>Three ways to shop smarter</h2>
+      </div>
+      <p>Every category is ranked by our Pick Score — a single number built from performance, value, durability, and real-world use.</p>
+    </div>
+    <div class="cat-grid">
+      <a href="#gadgets" class="cat-tile">
+        <div class="icon-box" style="background:#E3ECFC;">📱</div>
+        <h3>Gadgets</h3>
+        <p>Phones, earbuds, smart home, and wearables — tested against the specs that actually matter.</p>
+        <span class="go">Explore Gadgets →</span>
+      </a>
+      <a href="#ai-tools" class="cat-tile">
+        <div class="icon-box" style="background:#FDEFD8;">🤖</div>
+        <h3>AI Tools</h3>
+        <p>Writing, coding, and image apps put through the same task list so you can compare apples to apples.</p>
+        <span class="go">Explore AI Tools →</span>
+      </a>
+      <a href="#reviews" class="cat-tile">
+        <div class="icon-box" style="background:#E6F7EC;">📝</div>
+        <h3>Full Reviews</h3>
+        <p>The complete testing notes — teardown photos, benchmark numbers, and what we'd skip.</p>
+        <span class="go">Read Reviews →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="top-picks">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Updated this month</span>
+        <h2>Top-scoring picks right now</h2>
+      </div>
+      <a href="#reviews" class="btn btn-ghost">View all reviews</a>
+    </div>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-media">
+          <span class="rank">#1 THIS MONTH</span>
+          <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=300&q=80" alt="AetherWrite AI writing assistant interface on laptop">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">AI Tools</span>
+          <h3>AetherWrite AI</h3>
+          <p class="blurb">Cut our drafting time in half across a 4-week newsroom trial, with the fewest factual slip-ups of any tool we tried.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="91"></div>
+            <div><span class="num">91</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$20/mo</span>
+            <a href="#ai-tools" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-media">
+          <span class="rank">#2 THIS MONTH</span>
+          <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=300&q=80" alt="Nimbus Watch S3 smartwatch on wrist">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Gadgets</span>
+          <h3>Nimbus Watch S3</h3>
+          <p class="blurb">Battery still had 30% left after 6 days of GPS tracking — best result in our wearables tests this year.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="88"></div>
+            <div><span class="num">88</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$249</span>
+            <a href="#gadgets" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-media">
+          <span class="rank">#3 THIS MONTH</span>
+          <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=300&q=80" alt="Forge Studio AI image generation tool on screen">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">AI Tools</span>
+          <h3>Forge Studio AI</h3>
+          <p class="blurb">The only image generator in our test that kept hands and text legible across 50 prompts without retries.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="86"></div>
+            <div><span class="num">86</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$12/mo</span>
+            <a href="#ai-tools" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="process-wrap">
+  <div class="container">
+    <div class="process">
+      <div class="section-head" style="margin-bottom:0;">
+        <div>
+          <span class="eyebrow" style="color:#F5A623;">How a Pick Score gets made</span>
+          <h2 style="color:#fff;">Four steps, every product, no exceptions</h2>
+        </div>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-num">01 / SOURCE</span>
+          <h4>We buy it ourselves</h4>
+          <p>No loaner units used in scoring — we purchase at retail so there's nothing to protect.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">02 / LIVE WITH IT</span>
+          <h4>7–21 days of real use</h4>
+          <p>Gadgets go into daily rotation; AI tools get assigned real work tasks, not demo prompts.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">03 / BENCHMARK</span>
+          <h4>Same tests, every time</h4>
+          <p>A fixed checklist per category means scores are comparable across brands and years.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">04 / SCORE</span>
+          <h4>Publish the number</h4>
+          <p>Performance, value, durability, and support are weighted into one Pick Score out of 100.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-wrap">
+  <div class="container">
+    <div class="newsletter">
+      <div>
+        <h2>Get next month's picks first</h2>
+        <p>One email a month. New Pick Scores, price drops on past picks, zero spam.</p>
+      </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="you@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-amber">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============ /HOME ============ -->
+
+<!-- ============ GADGETS ============ -->
+<div id="page-gadgets" class="page" hidden>
+
+<div class="page-header">
+  <div class="container">
+    <span class="crumb"><a href="#home">Home</a> / Gadgets</span>
+    <h1>Gadgets</h1>
+    <p>Phones, earbuds, smart home devices, and wearables — bought at retail, used daily, scored on the same checklist every time.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-chip active" data-filter="all">All Gadgets</button>
+      <button class="filter-chip" data-filter="audio">Audio</button>
+      <button class="filter-chip" data-filter="wearables">Wearables</button>
+      <button class="filter-chip" data-filter="smart-home">Smart Home</button>
+      <button class="filter-chip" data-filter="phones">Phones</button>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card" data-category="audio">
+        <div class="product-media">
+          <span class="rank">#1</span>
+          <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80" alt="Pulse Buds Pro X2 earbuds">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Audio</span>
+          <h3>Pulse Buds Pro X2</h3>
+          <p class="blurb">32-hour combined battery life and the tightest active noise cancellation we've measured under $200.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="93"></div>
+            <div><span class="num">93</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$149</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="wearables">
+        <div class="product-media">
+          <span class="rank">#2</span>
+          <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=300&q=80" alt="Nimbus Watch S3 smartwatch">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Wearables</span>
+          <h3>Nimbus Watch S3</h3>
+          <p class="blurb">6 days of battery with GPS logging daily runs, plus the most accurate sleep tracking in our test group.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="88"></div>
+            <div><span class="num">88</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$249</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="smart-home">
+        <div class="product-media">
+          <span class="rank">#3</span>
+          <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=300&q=80" alt="Hearth Hub smart home display on kitchen counter">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Smart Home</span>
+          <h3>Hearth Hub Display</h3>
+          <p class="blurb">The only hub in our test that kept every third-party device connected after a 2-week stress run.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="84"></div>
+            <div><span class="num">84</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$99</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="phones">
+        <div class="product-media">
+          <span class="rank">#4</span>
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80" alt="Halcyon Phone 12 smartphone">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Phones</span>
+          <h3>Halcyon Phone 12</h3>
+          <p class="blurb">Held a charge through 9 hours of screen-on time in our mixed-use benchmark — best in its price tier.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="90"></div>
+            <div><span class="num">90</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$599</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="audio">
+        <div class="product-media">
+          <span class="rank">#5</span>
+          <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=300&q=80" alt="Drift Sound speaker">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Audio</span>
+          <h3>Drift Sound Mini</h3>
+          <p class="blurb">Survived a full pool-party test with zero water damage and kept a consistent bass response at max volume.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="81"></div>
+            <div><span class="num">81</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$79</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="wearables">
+        <div class="product-media">
+          <span class="rank">#6</span>
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80" alt="Ring Fit tracker ring">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Wearables</span>
+          <h3>Loop Ring Tracker</h3>
+          <p class="blurb">No screen, no charging anxiety — 5 nights per charge with sleep data that matched our lab reference within 4%.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="79"></div>
+            <div><span class="num">79</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$299</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============ /GADGETS ============ -->
+
+<!-- ============ AI TOOLS ============ -->
+<div id="page-ai-tools" class="page" hidden>
+
+<div class="page-header">
+  <div class="container">
+    <span class="crumb"><a href="#home">Home</a> / AI Tools</span>
+    <h1>AI Tools</h1>
+    <p>Writing, coding, and image-generation tools assigned the same real work tasks — not demo prompts — so scores are actually comparable.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-chip active" data-filter="all">All Tools</button>
+      <button class="filter-chip" data-filter="writing">Writing</button>
+      <button class="filter-chip" data-filter="coding">Coding</button>
+      <button class="filter-chip" data-filter="image">Image</button>
+      <button class="filter-chip" data-filter="productivity">Productivity</button>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card" data-category="writing">
+        <div class="product-media">
+          <span class="rank">#1</span>
+          <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=300&q=80" alt="AetherWrite AI writing tool interface">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Writing</span>
+          <h3>AetherWrite AI</h3>
+          <p class="blurb">Fastest turnaround on long-form drafts in our 4-week newsroom trial, with the fewest factual errors to fix.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="91"></div>
+            <div><span class="num">91</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$20/mo</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="image">
+        <div class="product-media">
+          <span class="rank">#2</span>
+          <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=300&q=80" alt="Forge Studio AI image generator">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Image</span>
+          <h3>Forge Studio AI</h3>
+          <p class="blurb">Kept hands and text legible across 50 test prompts without retries — a first for the image tools we've tried.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="86"></div>
+            <div><span class="num">86</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$12/mo</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="coding">
+        <div class="product-media">
+          <span class="rank">#3</span>
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=300&q=80" alt="CodeCurrent AI coding assistant in editor">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Coding</span>
+          <h3>CodeCurrent</h3>
+          <p class="blurb">Shaved 35% off our team's average PR review time across a 3-week trial on a real production codebase.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="89"></div>
+            <div><span class="num">89</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$19/mo</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="productivity">
+        <div class="product-media">
+          <span class="rank">#4</span>
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&q=80" alt="Ledgerline AI meeting notes tool">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Productivity</span>
+          <h3>Ledgerline AI</h3>
+          <p class="blurb">Transcribed and summarized 40 real meetings with the lowest name-misattribution rate we measured.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="83"></div>
+            <div><span class="num">83</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$15/mo</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="writing">
+        <div class="product-media">
+          <span class="rank">#5</span>
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=300&q=80" alt="Brightline AI editing tool">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Writing</span>
+          <h3>Brightline Editor</h3>
+          <p class="blurb">Caught tone-consistency issues across a 12,000-word document that two other editing tools missed entirely.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="78"></div>
+            <div><span class="num">78</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$10/mo</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="coding">
+        <div class="product-media">
+          <span class="rank">#6</span>
+          <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=300&q=80" alt="Vector Bug AI debugging tool">
+        </div>
+        <div class="product-body">
+          <span class="cat-label">Coding</span>
+          <h3>Vector Bug</h3>
+          <p class="blurb">Flagged the correct root cause on 8 of 10 planted bugs in our benchmark repo, ahead of every rival we tested.</p>
+          <div class="mini-gauge-row">
+            <div class="mini-gauge" data-gauge="80"></div>
+            <div><span class="num">80</span><br><span class="txt">Pick Score</span></div>
+          </div>
+          <div class="product-footer">
+            <span class="price">$25/mo</span>
+            <a href="#" class="btn btn-primary">Check Price</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============ /AI TOOLS ============ -->
+
+<!-- ============ REVIEWS ============ -->
+<div id="page-reviews" class="page" hidden>
+
+<div class="page-header">
+  <div class="container">
+    <span class="crumb"><a href="#home">Home</a> / Reviews</span>
+    <h1>All Reviews</h1>
+    <p>Every product we've tested, ranked by Pick Score. Filter by category or scan the full list below.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="audio">Audio</button>
+      <button class="filter-chip" data-filter="wearables">Wearables</button>
+      <button class="filter-chip" data-filter="smart-home">Smart Home</button>
+      <button class="filter-chip" data-filter="phones">Phones</button>
+      <button class="filter-chip" data-filter="writing">AI Writing</button>
+      <button class="filter-chip" data-filter="coding">AI Coding</button>
+      <button class="filter-chip" data-filter="image">AI Image</button>
+      <button class="filter-chip" data-filter="productivity">AI Productivity</button>
+    </div>
+
+    <div class="review-list">
+
+      <div class="review-row" data-category="audio">
+        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=200&q=80" alt="Pulse Buds Pro X2">
+        <div>
+          <span class="cat-label">Audio</span>
+          <h4>Pulse Buds Pro X2</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$149</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="93"></div><strong>93</strong></div>
+        <a href="#gadgets" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="writing">
+        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=200&q=80" alt="AetherWrite AI">
+        <div>
+          <span class="cat-label">AI Writing</span>
+          <h4>AetherWrite AI</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$20/mo</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="91"></div><strong>91</strong></div>
+        <a href="#ai-tools" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="phones">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=200&q=80" alt="Halcyon Phone 12">
+        <div>
+          <span class="cat-label">Phones</span>
+          <h4>Halcyon Phone 12</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$599</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="90"></div><strong>90</strong></div>
+        <a href="#gadgets" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="coding">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=200&q=80" alt="CodeCurrent">
+        <div>
+          <span class="cat-label">AI Coding</span>
+          <h4>CodeCurrent</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$19/mo</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="89"></div><strong>89</strong></div>
+        <a href="#ai-tools" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="wearables">
+        <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=200&q=80" alt="Nimbus Watch S3">
+        <div>
+          <span class="cat-label">Wearables</span>
+          <h4>Nimbus Watch S3</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$249</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="88"></div><strong>88</strong></div>
+        <a href="#gadgets" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="image">
+        <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=200&q=80" alt="Forge Studio AI">
+        <div>
+          <span class="cat-label">AI Image</span>
+          <h4>Forge Studio AI</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$12/mo</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="86"></div><strong>86</strong></div>
+        <a href="#ai-tools" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="smart-home">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=200&q=80" alt="Hearth Hub Display">
+        <div>
+          <span class="cat-label">Smart Home</span>
+          <h4>Hearth Hub Display</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$99</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="84"></div><strong>84</strong></div>
+        <a href="#gadgets" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="productivity">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=200&q=80" alt="Ledgerline AI">
+        <div>
+          <span class="cat-label">AI Productivity</span>
+          <h4>Ledgerline AI</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$15/mo</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="83"></div><strong>83</strong></div>
+        <a href="#ai-tools" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="audio">
+        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=200&q=80" alt="Drift Sound Mini">
+        <div>
+          <span class="cat-label">Audio</span>
+          <h4>Drift Sound Mini</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$79</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="81"></div><strong>81</strong></div>
+        <a href="#gadgets" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="coding">
+        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=200&q=80" alt="Vector Bug">
+        <div>
+          <span class="cat-label">AI Coding</span>
+          <h4>Vector Bug</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$25/mo</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="80"></div><strong>80</strong></div>
+        <a href="#ai-tools" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="wearables">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=200&q=80" alt="Loop Ring Tracker">
+        <div>
+          <span class="cat-label">Wearables</span>
+          <h4>Loop Ring Tracker</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$299</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="79"></div><strong>79</strong></div>
+        <a href="#gadgets" class="btn btn-ghost">Read Review</a>
+      </div>
+
+      <div class="review-row" data-category="writing">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=200&q=80" alt="Brightline Editor">
+        <div>
+          <span class="cat-label">AI Writing</span>
+          <h4>Brightline Editor</h4>
+          <span class="mono" style="font-size:13px;color:var(--slate);">$10/mo</span>
+        </div>
+        <div class="rr-gauge"><div class="mini-gauge" data-gauge="78"></div><strong>78</strong></div>
+        <a href="#ai-tools" class="btn btn-ghost">Read Review</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============ /REVIEWS ============ -->
+
+<!-- ============ ABOUT ============ -->
+<div id="page-about" class="page" hidden>
+
+<div class="page-header">
+  <div class="container">
+    <span class="crumb"><a href="#home">Home</a> / About</span>
+    <h1>We buy what we test</h1>
+    <p>Smart Picks USA started with one rule in 2021: never review a product we didn't pay for ourselves. That rule hasn't changed.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Why we exist</span>
+        <h2>Most "best of" lists are ad copy</h2>
+      </div>
+      <p>We got tired of round-ups written from a spec sheet and a press release. So we built a small team that actually lives with the products before scoring them.</p>
+    </div>
+
+    <div class="value-grid">
+      <div class="value-card">
+        <span class="num">01</span>
+        <h3>We buy at retail</h3>
+        <p>No loaner units factor into a Pick Score. If a brand sends one, we test it, but we buy our own for the number that gets published.</p>
+      </div>
+      <div class="value-card">
+        <span class="num">02</span>
+        <h3>Same checklist, every time</h3>
+        <p>Each category has a fixed set of tests, so a score from January and a score from June mean the same thing.</p>
+      </div>
+      <div class="value-card">
+        <span class="num">03</span>
+        <h3>Commissions don't move scores</h3>
+        <p>Our editorial team scores products before affiliate links are ever added to a review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">The team</span>
+        <h2>Five testers, one checklist</h2>
+      </div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">JM</div>
+        <h4>Jordan Meyer</h4>
+        <span>Gadgets Lead</span>
+      </div>
+      <div class="team-card">
+        <div class="avatar">RC</div>
+        <h4>Riley Chen</h4>
+        <span>AI Tools Lead</span>
+      </div>
+      <div class="team-card">
+        <div class="avatar">AP</div>
+        <h4>Amara Patel</h4>
+        <span>Benchmark Engineer</span>
+      </div>
+      <div class="team-card">
+        <div class="avatar">TS</div>
+        <h4>Theo Sørensen</h4>
+        <span>Editor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-wrap">
+  <div class="container">
+    <div class="process">
+      <div class="section-head" style="margin-bottom:0;">
+        <div>
+          <span class="eyebrow" style="color:#F5A623;">Our standard</span>
+          <h2 style="color:#fff;">What goes into every Pick Score</h2>
+        </div>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-num">40%</span>
+          <h4>Performance</h4>
+          <p>Does it do the core job better than the alternatives at a similar price?</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">25%</span>
+          <h4>Value</h4>
+          <p>Price against what you actually get, not the sticker on the box.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">20%</span>
+          <h4>Durability</h4>
+          <p>For gadgets: physical wear. For AI tools: consistency across sessions.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">15%</span>
+          <h4>Support</h4>
+          <p>Warranty terms, response times, and how easy returns actually are.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============ /ABOUT ============ -->
+
+<!-- ============ CONTACT ============ -->
+<div id="page-contact" class="page" hidden>
+
+<div class="page-header">
+  <div class="container">
+    <span class="crumb"><a href="#home">Home</a> / Contact</span>
+    <h1>Get in touch</h1>
+    <p>Product suggestion, correction, or press inquiry — the form goes straight to our editorial inbox.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="contact-wrap">
+
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Jamie Rivera" required>
+        </div>
+        <div class="form-group">
+          <label for="email-contact">Email address</label>
+          <input type="email" id="email-contact" name="email" placeholder="jamie@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="topic">What's this about?</label>
+          <select id="topic" name="topic">
+            <option>Suggest a product to test</option>
+            <option>Correction on a review</option>
+            <option>Press / partnership</option>
+            <option>General question</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        <p class="form-status"></p>
+      </form>
+
+      <div>
+        <div class="contact-info-card">
+          <h3>Other ways to reach us</h3>
+          <div class="contact-info-row">
+            <span class="ico">@</span>
+            <div><span class="label">Email</span><span class="val">hello@smartpicksusa.example</span></div>
+          </div>
+          <div class="contact-info-row">
+            <span class="ico">📍</span>
+            <div><span class="label">Office</span><span class="val">Austin, Texas — USA</span></div>
+          </div>
+          <div class="contact-info-row">
+            <span class="ico">⏱</span>
+            <div><span class="label">Response time</span><span class="val">1–2 business days</span></div>
+          </div>
+          <div class="contact-info-row">
+            <span class="ico">📰</span>
+            <div><span class="label">Press kit</span><span class="val">Available on request</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============ /CONTACT ============ -->
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><span class="mark">SP</span><span>Smart Picks USA</span></a>
+        <p>Independent gadget and AI tool reviews for U.S. shoppers. We buy what we test.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#gadgets">Gadgets</a></li>
+          <li><a href="#ai-tools">AI Tools</a></li>
+          <li><a href="#reviews">All Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">Our Testing Process</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclosure">
+      <strong>Affiliate Disclosure:</strong> Smart Picks USA is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you. This never influences which products we choose to test or the Pick Score we give them.
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Smart Picks USA. All rights reserved.</span>
+      <span>Made for U.S. shoppers 🇺🇸</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================
+// Smart Picks USA — single-page app (bundled)
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavToggle();
+  drawGauges();
+  initFilterChips();
+  initNewsletterForm();
+  initContactForm();
+  initYear();
+  initRouter();
+});
+
+/* Mobile nav toggle */
+function initNavToggle() {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    const expanded = nav.classList.contains('open');
+    toggle.setAttribute('aria-expanded', expanded);
+  });
+}
+
+/* Draws the signature "Pick Score" semicircle gauge into every
+   element with [data-gauge="NN"]. NN = score out of 100. */
+function drawGauges() {
+  const gauges = document.querySelectorAll('[data-gauge]');
+  gauges.forEach((el) => {
+    const score = Math.max(0, Math.min(100, parseInt(el.dataset.gauge, 10) || 0));
+    const isMini = el.classList.contains('mini-gauge');
+    const w = isMini ? 54 : 84;
+    const h = isMini ? 32 : 48;
+    const strokeW = isMini ? 6 : 9;
+    const cx = w / 2;
+    const cy = h - 4;
+    const r = cx - strokeW / 2 - 2;
+
+    const angle = Math.PI * (score / 100); // 0..PI across the semicircle
+    const startX = cx - r;
+    const startY = cy;
+    const endX = cx - r * Math.cos(angle);
+    const endY = cy - r * Math.sin(angle);
+    const largeArc = score > 50 ? 1 : 0;
+
+    const color = score >= 85 ? '#16A34A' : score >= 70 ? '#2F6FED' : '#F5A623';
+
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+    const track = document.createElementNS(svgNS, 'path');
+    track.setAttribute('d', `M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy}`);
+    track.setAttribute('fill', 'none');
+    track.setAttribute('stroke', '#E2E8F0');
+    track.setAttribute('stroke-width', strokeW);
+    track.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(track);
+
+    const value = document.createElementNS(svgNS, 'path');
+    value.setAttribute('d', `M ${startX} ${startY} A ${r} ${r} 0 ${largeArc} 1 ${endX} ${endY}`);
+    value.setAttribute('fill', 'none');
+    value.setAttribute('stroke', color);
+    value.setAttribute('stroke-width', strokeW);
+    value.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(value);
+
+    el.innerHTML = '';
+    el.appendChild(svg);
+  });
+}
+
+/* Filter chips — scoped per .filter-bar, since the bundled app now has
+   several filter bars in the DOM at once (Gadgets, AI Tools, Reviews). */
+function initFilterChips() {
+  const bars = document.querySelectorAll('.filter-bar');
+  bars.forEach((bar) => {
+    const scope = bar.closest('.page') || document;
+    const chips = bar.querySelectorAll('.filter-chip');
+    const items = scope.querySelectorAll('[data-category]');
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        chips.forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        items.forEach((item) => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  });
+}
+
+/* Newsletter form — client-side only demo submission */
+function initNewsletterForm() {
+  const form = document.querySelector('.newsletter-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = form.querySelector('input[type="email"]');
+    const btn = form.querySelector('button');
+    if (!input.value) return;
+    btn.textContent = 'Subscribed ✓';
+    btn.disabled = true;
+    input.value = '';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; }, 3000);
+  });
+}
+
+/* Contact form — client-side only demo submission */
+function initContactForm() {
+  const form = document.querySelector('#contact-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const status = document.querySelector('.form-status');
+    status.textContent = "Message sent. We'll reply within 1–2 business days.";
+    status.classList.add('ok');
+    form.reset();
+  });
+}
+
+function initYear() {
+  const el = document.querySelector('#year');
+  if (el) el.textContent = new Date().getFullYear();
+}
+
+/* ---------- Router: turns the 6 pages into one app ---------- */
+const VALID_PAGES = ['home', 'gadgets', 'ai-tools', 'reviews', 'about', 'contact'];
+
+function initRouter() {
+  window.addEventListener('hashchange', () => navigate(location.hash));
+  navigate(location.hash);
+}
+
+function navigate(hash) {
+  let id = (hash || '').replace('#', '');
+  if (!VALID_PAGES.includes(id)) id = 'home';
+
+  document.querySelectorAll('.page').forEach((p) => {
+    p.hidden = p.id !== 'page-' + id;
+  });
+
+  document.querySelectorAll('.main-nav a[data-page]').forEach((a) => {
+    a.classList.toggle('active', a.dataset.page === id);
+  });
+
+  const nav = document.querySelector('.main-nav');
+  if (nav) nav.classList.remove('open');
+  const toggle = document.querySelector('.nav-toggle');
+  if (toggle) toggle.setAttribute('aria-expanded', 'false');
+
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
